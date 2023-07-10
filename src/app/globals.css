@@ -11,37 +11,22 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-attachment: fixed;
-  /* background-image: repeating-linear-gradient(
-      90deg,
-      hsla(15, 0%, 62%, 0.05) 0px,
-      hsla(15, 0%, 62%, 0.05) 1px,
-      transparent 1px,
-      transparent 104px
-    ),
-    repeating-linear-gradient(
-      0deg,
-      hsla(15, 0%, 62%, 0.05) 0px,
-      hsla(15, 0%, 62%, 0.05) 1px,
-      transparent 1px,
-      transparent 104px
-    ),
-    repeating-linear-gradient(
-      0deg,
-      hsla(15, 0%, 62%, 0.07) 0px,
-      hsla(15, 0%, 62%, 0.07) 1px,
-      transparent 1px,
-      transparent 52px
-    ),
-    repeating-linear-gradient(
-      90deg,
-      hsla(15, 0%, 62%, 0.07) 0px,
-      hsla(15, 0%, 62%, 0.07) 1px,
-      transparent 1px,
-      transparent 52px
-    ),
-    linear-gradient(0deg, rgb(20, 20, 20), rgb(20, 20, 20)); */
 
-    background-image: repeating-linear-gradient(0deg, rgb(17, 17, 17) 0px, rgb(17, 17, 17) 1px,transparent 1px, transparent 51px),repeating-linear-gradient(90deg, rgb(17, 17, 17) 0px, rgb(17, 17, 17) 1px,transparent 1px, transparent 51px),linear-gradient(90deg, hsl(49,0%,3%),hsl(49,0%,3%));
+  background-image: repeating-linear-gradient(
+      0deg,
+      rgb(17, 17, 17) 0px,
+      rgb(17, 17, 17) 1px,
+      transparent 1px,
+      transparent 51px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgb(17, 17, 17) 0px,
+      rgb(17, 17, 17) 1px,
+      transparent 1px,
+      transparent 51px
+    ),
+    linear-gradient(90deg, hsl(49, 0%, 3%), hsl(49, 0%, 3%));
 }
 
 html {
