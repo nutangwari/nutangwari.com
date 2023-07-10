@@ -35,7 +35,7 @@ const BlogPage = async () => {
             
             {
               post.frontmatter.tags.length && post.frontmatter.tags.map((tag) => (
-                <span className='bg-neutral-100 border mx-1 border-black border-opacity-5 px-2 text-sm rounded-full dark:bg-neutral-800 dark:text-neutral-500'>
+                <span key={tag} className='bg-neutral-100 border mx-1 border-black border-opacity-5 px-2 text-sm rounded-full dark:bg-neutral-800 dark:text-neutral-500'>
                   {tag}
                 </span>
               ))

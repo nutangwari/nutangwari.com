@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image";
 
 const experience = [
     {
@@ -45,10 +46,10 @@ export default function About() {
     return (
         <div className="mx-auto mt-10 w-3/5 mb-20">
 
-            <h2 className="text-center text-2xl">Hey, I'm Nutan Gwari 👋</h2>
+            <h2 className="text-center text-2xl">Hey, I&apos;m amNutan Gwari 👋</h2>
 
             <p className="my-16 text-xl font-extralight">
-                I'am frontend engineer, passionate for developing experience rich web applications.
+                I&apos;am frontend engineer, passionate for developing experience rich web applications.
 
                 Proficient in technologies including Angular, React,
                 TypeScript, and SCSS, I have successfully implemented features for complex modules and
@@ -63,13 +64,13 @@ export default function About() {
                 {
                     experience.map(exp => {
                         return (
-                            <ul className="list-none w-full">
+                            <ul key={exp.company} className="list-none w-full">
                                 <li className="flex gap-x-4 px-4 -mx-4 py-1 rounded-[12px] border-none hover:bg-neutral-50 dark:hover:bg-neutral-800 group">
 
                                     <Link href={exp.url}
                                         className="flex flex-grow gap-x-4 px-4 -mx-4 pt-4 rounded-[12px] border-none"
                                         target="_blank">
-                                        <img className="rounded-full object-contain h-[40px] w-[40px]" src={exp.image} alt="" />
+                                        <Image className="rounded-full object-contain" width={40} height={40} src={exp.image} alt="" />
 
                                         <div className="flex flex-col text-sm border-b border-neutral-100 dark:border-neutral-900 flex-auto pb-4 text-neutral-700 group-hover:border-transparent dark:text-neutral-300">
                                             <div className="flex justify-between gap-x-2 items-center">
@@ -82,7 +83,7 @@ export default function About() {
                                             <div>
                                                 {
                                                     false && exp.skills?.length && exp.skills?.map(skill => (
-                                                        <span className="mr-1 border-none px-2 py-1 rounded-full text-sm text-neutral-400 bg-black">{skill}</span>
+                                                        <span key={skill} className="mr-1 border-none px-2 py-1 rounded-full text-sm text-neutral-400 bg-black">{skill}</span>
                                                     ))
                                                 }
                                             </div>

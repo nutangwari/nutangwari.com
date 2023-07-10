@@ -19,7 +19,7 @@ export default function CV() {
                 <h2 className="text-neutral-300">Frontend Engineer</h2>
                 <div className="flex mt-2 text-neutral-500">
                     { socialLinks.map(link => (
-                        <Link className="mr-3" href={link.url} target='_blank'><link.icon /></Link>
+                        <Link key={link.label} className="mr-3" href={link.url} target='_blank'><link.icon /></Link>
                     ))}
                 </div>
             </header>
@@ -29,7 +29,7 @@ export default function CV() {
                 <h2 className="text-neutral-100 text-lg mb-5">Skills: </h2>
                 <div className="flex flex-wrap">
                 { coreSkills.map(skill =>(
-                    <div className="rounded-full py-1 px-3 bg-black text-cyan-500 text-sm mr-3 mt-1">{skill}</div>
+                    <div key={skill} className="rounded-full py-1 px-3 bg-black text-cyan-500 text-sm mr-3 mt-1">{skill}</div>
                 ))}
                 </div>
                 
@@ -65,7 +65,7 @@ export default function CV() {
                 {
                     experience.map(job => {
                         return (
-                            <div className="grid grid-cols-10 mb-16 items-baseline gap-10">
+                            <div key={job.company} className="grid grid-cols-10 mb-16 items-baseline gap-10">
                                 <div className="col-span-2">{job.tenure}</div>
                                 <div className="col-span-8">
                                     <h3 className="flex flex-col mb-3">
@@ -77,11 +77,11 @@ export default function CV() {
                                         </Link>
                                     </h3>
                                     <ul className="list-disc">
-                                        {job.points.map(point => <li>{point}</li>)}
+                                        {job.points.map((point, idx) => <li key={idx}>{point}</li>)}
                                     </ul>
 
                                     <ul className="mt-3">
-                                        {job.skills.map(skill => (<span
+                                        {job.skills.map(skill => (<span key={skill}
                                             className="rounded-full inline-block text-sm 
                                             text-purple-400 bg-neutral-800 mr-3 mt-1 px-3 py-1">
                                             {skill}

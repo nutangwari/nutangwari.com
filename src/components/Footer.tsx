@@ -20,7 +20,7 @@ export default function Footer() {
                     footerLinks.map(link => {
                         const SocialIcon = link.icon
                         return (
-                            <li className='cursor-pointer transition-colors hover:text-neutral-100'>
+                            <li key={link.label} className='cursor-pointer transition-colors hover:text-neutral-100'>
                                 <Link href={link.url} target='_blank'>
                                     <SocialIcon />
                                 </Link>
