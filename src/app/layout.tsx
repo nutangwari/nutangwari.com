@@ -1,7 +1,13 @@
+import Nav from '@/components/Nav'
 import './globals.css'
-import { Inter } from 'next/font/google'
+import { Inter, Josefin_Sans } from 'next/font/google'
+import Footer from '@/components/Footer'
 
-const inter = Inter({ subsets: ['latin'] })
+// const inter = Inter({ subsets: ['latin'] })
+const josefin = Josefin_Sans({
+  weight: ['200', '400', '500', '700'],
+  subsets: ['latin']
+})
 
 export const metadata = {
   title: 'Create Next App',
@@ -15,7 +21,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${josefin.className} flex flex-col w-full h-[calc(100vh_-_5rem_-_1px)] bg-neutral-900`}>
+        <nav className='fixed top-0 w-full'>
+          <Nav />
+        </nav>
+
+        {/* removing the margin mt-20 (5rem) from screen height */}
+        <main className='mt-20 w-full flex-grow px-10 mx-auto'>{children}</main>
+
+        <Footer />
+      </body>
     </html>
   )
 }

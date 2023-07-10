@@ -1,0 +1,8 @@
+.next
+.git
+node_modules
+public
+.vscode
+.gitignore
+next-end.d.ts
+package.json
