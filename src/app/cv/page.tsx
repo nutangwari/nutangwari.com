@@ -29,7 +29,7 @@ export default function CV() {
                 <h2 className="text-neutral-100 text-lg mb-5">Skills: </h2>
                 <div className="flex flex-wrap">
                 { coreSkills.map(skill =>(
-                    <div key={skill} className="rounded-full py-1 px-3 bg-black text-cyan-500 text-sm mr-3 mt-1">{skill}</div>
+                    <div key={skill} className="rounded-full py-1 px-3 bg-neutral-800 text-cyan-500 text-sm mr-3 mt-1">{skill}</div>
                 ))}
                 </div>
                 
