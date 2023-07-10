@@ -70,7 +70,7 @@ export default function About() {
                                     <Link href={exp.url}
                                         className="flex flex-grow gap-x-4 px-4 -mx-4 pt-4 rounded-[12px] border-none"
                                         target="_blank">
-                                        <Image className="rounded-full object-contain" width={40} height={40} src={exp.image} alt="" />
+                                        <Image className="rounded-full object-contain h-10 w-10" width={40} height={40} src={exp.image} alt="" />
 
                                         <div className="flex flex-col text-sm border-b border-neutral-100 dark:border-neutral-900 flex-auto pb-4 text-neutral-700 group-hover:border-transparent dark:text-neutral-300">
                                             <div className="flex justify-between gap-x-2 items-center">
