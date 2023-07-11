@@ -12,7 +12,7 @@ export default function TOC() {
         })
     }
     return (
-        <ul className="fixed sm:left-[50px] left-[150px] top-[300px]">
+        <ul className="fixed hidden md:flex flex-col sm:left-[50px] left-[150px] top-[300px]">
             {
                 tocLinks.map(link => {
                     return (

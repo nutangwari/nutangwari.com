@@ -35,11 +35,11 @@ const navLinks: NavLink[] = [
 export default function Nav() {
     const pathName = usePathname()
     return (
-        <div className='w-full py-2 px-10 flex items-center justify-between '>
+        <div className='w-full py-2 md:px-10 px-3 flex flex-col md:flex-row items-center justify-between'>
 
             <Logo />
 
-            <div className="flex justify-end gap-x-20 text-neutral-400 ">
+            <div className="flex justify-end gap-x-20 pt-4 md:py-0 text-neutral-400 ">
                 {navLinks.map((link) => {
                     return (
                         <Link className={`

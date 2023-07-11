@@ -5,7 +5,7 @@ const experience = [
     {
         company: 'VMware',
         url: 'https://www.vmware.com',
-        image: 'vmw.jpg',
+        image: '/vmw.jpg',
         position: 'Senior Member of Technical Staff',
         tenure: '2021 — 2023',
         skills: ['angular', 'typescript', 'nodejs', 'ngrx', 'scss', 'clarity', 'docker']
@@ -13,7 +13,7 @@ const experience = [
     {
         company: 'NICE',
         url: 'https://www.nice.com',
-        image: 'nice.png',
+        image: '/nice.png',
         position: 'Specialist Software Engineer',
         tenure: '2018 — 2021',
         skills: ['angular', 'typescript', 'canvas', 'svg', 'backboneJs', 'rxjs', 'scss', 'bootstrap', 'ionic']
@@ -21,7 +21,7 @@ const experience = [
     {
         company: 'Citi',
         url: 'https://www.citi.com',
-        image: 'citi.png',
+        image: '/citi.png',
         position: 'Assistant Manager - UI',
         tenure: '2017 — 2018',
         skills: ['angular', 'typescript', 'react', 'rxjs', 'scss', 'bootstrap']
@@ -29,14 +29,14 @@ const experience = [
     {
         company: 'SunGard (now FIS)',
         url: 'https://www.nice.com',
-        image: 'fis.jpg',
+        image: '/fis.jpg',
         position: 'Product Development Engineer',
         tenure: '2015 — 2017'
     },
     {
         company: 'TCS',
         url: 'https://www.tcs.com',
-        image: 'tcs.webp',
+        image: '/tcs.webp',
         position: 'Software Engineer',
         tenure: '2013 — 2015'
     }
@@ -44,7 +44,7 @@ const experience = [
 
 export default function About() {
     return (
-        <div className="mx-auto mt-10 w-3/5 mb-20">
+        <div className="mx-auto mt-10 w-[90%] md:w-3/5 mb-20">
 
             <h2 className="text-center text-2xl">Hey, I&apos;m Nutan Gwari 👋</h2>
 
@@ -57,7 +57,7 @@ export default function About() {
                 automated common tasks and improved productivity by developing custom utilities and libraries.
                 Throughtout my career I have collaborated with cross-functional teams, addressed technical debts, and ensured the
                 smooth delivery of features.
-            </p>``
+            </p>
 
             <section>
                 <h2 className="mb-2 text-lg">Work Experience:</h2>

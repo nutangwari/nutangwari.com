@@ -10,7 +10,7 @@ const coreSkills = CoreSkills
 
 export default function CV() {
     return (
-        <div className="mx-auto mt-10 w-3/5 mb-20 relative">
+        <div className="mx-auto mt-10 w-[95%] md:w-3/5 mb-20 relative">
 
             <TOC />
 
