@@ -12,7 +12,9 @@ const ROOT = process.cwd();
 const getSlugs = (): string[] => {
     const blogsDirPath = path.join(ROOT, blogsDir);
 
-    const fileNames = fs.readdirSync(blogsDirPath);
+    let fileNames = fs.readdirSync(blogsDirPath);
+    console.log(fileNames);
+    fileNames = fileNames.filter(file => file.endsWith('.mdx'));
     return fileNames.map(file => file.replace('.mdx', ''));
 }
 

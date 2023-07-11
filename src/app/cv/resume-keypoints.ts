@@ -1,7 +1,15 @@
 const ResumePoints = {
+    veritas: [
+        `Building Veritas Alta View, a Global Management plane for multiple NBUs`,
+        `Building Micro Frontends using Module Federation  and Single-SPA library, Integrating multiple
+        MFEs into Alta View.`,
+        `Working with Material M3 Design tokens and Angular v18`,
+        `Using Nx to manage 40+ Libraries and Application projects in single monorepo`,
+        `Working with Web Components to integrate the legacy functionalities and features`,
+        `Worked on node scripts to automate build process,  auto upgrades for third party libraries`
+    ],
     vmware: [
-        `Senior Member of Technical Staff at VMware, specializing in VMware Cloud Virtualization and
-        Network Security product NSX-T`,
+        `Senior Member of Technical Staff at VMware, specializing in VMware Cloud Virtualization andNetwork Security product NSX-T`,
         `Successfully implemented features for modules such as DHCP, DNS, and NAT for the NSX-T
         product`,
         `Integrated core component library with Storybook for documentation and showcasing
@@ -81,6 +89,17 @@ export const CoreSkills = [
 ]
 
 export const Resume = [
+    {
+        company: 'Veritas',
+        image: '/veritas.png',
+        designation: 'Principal Software Engineer',
+        tenure: '2023 — Present',
+        url: 'veritas.com',
+        points: ResumePoints.veritas,
+        skills: [
+            'Angular 18+', 'Module Federation', 'Micro Frontends', 'Web Components', 'Material 3', 'TypeScript', 'SCSS', 'NPM', 'Webpack', 'Node.js'
+        ]
+    },
     {
         company: 'VMware',
         image: '/vmw.jpg',

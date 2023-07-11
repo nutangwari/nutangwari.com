@@ -10,13 +10,13 @@ const coreSkills = CoreSkills
 
 export default function CV() {
     return (
-        <div className="mx-auto mt-10 w-3/5 mb-20 relative">
+        <div className="mx-auto mt-10 w-[95%] md:w-3/5 mb-20 relative">
 
             <TOC />
 
             <header>
                 <h1 className="text-3xl">Nutan Gwari</h1>
-                <h2 className="text-neutral-300">Frontend Engineer</h2>
+                <h2 className="text-neutral-300">Principal UI Engineer</h2>
                 <div className="flex mt-2 text-neutral-500">
                     {socialLinks.map(link => (
                         <Link key={link.label} className="mr-3" href={link.url} target='_blank'><link.icon /></Link>
@@ -36,8 +36,17 @@ export default function CV() {
             </section>
 
             {/* Intro */}
+            
             <section id="intro" className="mt-20 text-neutral-400 scroll-m-40">
                 <h2 className="text-neutral-100 text-lg mb-5">Intro: </h2>
+
+                {/* Veritas */}
+                <div className="mb-3">
+                    Working as Principal Software Engineer - UI at <Link href="https://www.veritas.com" className="text-cyan-500 font-bold">Veritas</Link>, enterprise backup product <Link href="https://www.veritas.com/alta" target="_blank" className="underline text-green-500">Netbackup - Alta</Link>
+                </div>
+                <br />
+
+                {/* TCS */}
                 <p className="mb-3">
                     I started my career in 2013 as a Junior Software Engineer at <Link href="https://www.tcs.com" target="_blank" className="text-cyan-500 font-bold">TCS</Link> and have since gained valuable experience working with product-based organizations in various domains.
                 </p>
@@ -59,7 +68,7 @@ export default function CV() {
 
                 {/* vmware */}
                 <p className="mb-3">
-                    Currently, as a Senior Member of Technical Staff at <Link href="https://www.vmware.com" target="_blank" className="text-cyan-500 font-bold">VMware</Link>, working on the <Link href="https://www.vmware.com/in/products/nsx.html" target="_blank" className="underline text-green-500">NSX</Link> product, specializing in Network Security and Virtualization. I develop and maintain modules such as NAT, DNS, and DHCP, and have created Node.js utilities and libraries to automate processes. I also contribute to maintaining <Link href="https://clarity.design/" target="_blank" className="underline text-green-500">Clarity</Link> components using <kbd>Storybook</kbd>.
+                    Worked as a Senior Member of Technical Staff at <Link href="https://www.vmware.com" target="_blank" className="text-cyan-500 font-bold">VMware</Link>, working on the <Link href="https://www.vmware.com/in/products/nsx.html" target="_blank" className="underline text-green-500">NSX</Link> product, specializing in Network Security and Virtualization. I developed and maintained features for modules such as NAT, DNS, and DHCP, and written Node.js utilities and scripts to automate processes. I also contributed to maintaining <Link href="https://clarity.design/" target="_blank" className="underline text-green-500">Clarity</Link> components using <kbd>Storybook</kbd>.
                 </p>
             </section>
 

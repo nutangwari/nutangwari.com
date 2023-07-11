@@ -1,0 +1,131 @@
+---
+title: "JavaScript setTimeout in depth"
+description: "In detail explanation of setTimeout method in JavaScript"
+createDate: "23 Aug 2019"
+tags:
+    - Javascript
+    - SetTimeout
+---
+
+SetTimeout and SetInterval are timer methods allows user to schedule timer-based callbacks to be executed sometime later in future. 
+Let's think about them like a scheduler which gets executed sometime in the future, that's it. We are done with  timer functions. 
+Let's take an example of a time bomb, key feature of time bomb is, we can set the bomb to explode sometime in the future by setting the timer, and then we can safely move away from the explosion impact range, and finally once timer countdown completes, it triggers the bomb, at this moment after trigger, explosion process starts, remember one important thing here, explosion triggers once countdown timer reaches the configured time.
+
+Okay, enough with the bomb making!
+
+`SetTimeout` method is very similar to this process, we set the timer and we pass the function which gets executed once timer expires.
+
+> Remember method gets executed after the timer reaches the configured time delay
+
+### Syntax
+```ts
+function explode() {
+	console.log('exploded!');
+}
+setTimeout(explode, 2000);
+// 'exploded!' prints in console after 2 seconds (2000 miliseconds)
+```
+
+It's pretty simple right! we pass the callback function as first argument and timer as second argument to the `setTimeout` method and just like that we have scheduled a method ready to be triggered sometime in the future.
+
+we can also rewrite above method in below signature:
+```ts
+setTimeout(function() {
+	console.log('SetTimeout Called')
+}, 3000);
+// setTimeout Called will be logged after 3 seconds
+```
+
+#### Passing Argument to SetTimeout
+There could be scenario when you want to pass some parameters to the pass arguments to the callback function, any number of additional arguments can be passed to the `setTimeout` callback function as below:
+
+```ts
+setTimout((msg: string) => {
+	console.log(msg)
+}, 1000, 'Hello World!')
+
+// Hello World! will be printed after 1 second
+```
+
+So far we are good, there are couple of more basic concepts and then we will move towards more advanced concepts of timer methods:
+
+#### Canceling setTimeout
+
+Let's revisit our time bomb example, In the movies, our hero comes at the right moment and diffuses the bomb! and saves the planet. Similarly,  there is a way to cancel the scheduled task, every `setTimeout` method returns an unique id, which can be passed to `clearTimeout` method to cancel the scheduled timer function.
+
+```ts
+const timeoutId = setTimeout(explode, 5000);
+clearTimeout(timeoutId);
+// explode method never executes.
+```
+
+we are immediately cancelling the timeout hence, explode method never executes, just remember, we must clear timeout before timer expires, its like you are trying to diffuse exploded bomb.
+
+> Fun fact: internally browser maintains a map of all the timer function  and corresponding timerId of them, whenever we call `setTimeout` or `setInterval` browser generates a unique id and puts that in the map, this map is shared by all the timer functions.
+> Hence we can call either  `clearInterval` or `clearTimeout` to clear any timer function for e.g.
+
+```ts
+const timeoutId = setTimeout(() => {}, 2000)
+const intervalId = setInterval(() => {}, 1000)
+
+clearTimeout(timeoutId)
+clearTimeout(intervalId) // works same as clearInterval()
+
+// same clear function can be used for both operations
+```
+
+
+Now that we have basic understanding of timeouts, let's dig deeper to understand some of the tricky scenarios.
+
+## Advanced Concepts
+
+### Asynchronous Tasks
+
+```ts
+setTimeout(() => console.log('A'), 1000);
+setTimeout(() => console.log('B'), 0);
+setTimeout(() => console.log('C'), 2000);
+```
+
+Pause here for couple of minutes and try to think what would be the output for the above code snippet. 
+
+Most of us would have guessed it correctly:
+```ts
+B
+A
+C
+```
+**Explanation:** 
+Three timeouts would be scheduled to be executed in the future, `B` would be set to trigger immediately, while `A` will take 1 second and `C` would take 2 seconds, and hence the output `B` `A` and `C`.
+
+But one important thing this code doesn't explains is about how these setTimeout calls are scheduled. Let's revisit our previous code snippet with one small tweak:
+```ts
+setTimeout(() => console.log('A'), 1000);
+setTimeout(() => console.log('B'), 0);
+console.log('D');
+setTimeout(() => console.log('C'), 2000);
+```
+We would expect output to be `B` `D` `A`and  `C` which is incorrect. As per assumptions, `B` will be executed immediately as timer is 0 and `D` will be executed after that. But here comes one important thing to learn about timer methods (`setTimeout` and `setInterval`) they are not part of Web APIs and hence usually shipped as part of browser functionalities. These are asynchronous activities and hence handled separately.
+
+Such async methods are handled by Event Queue, we are not going to go too much in detail here, we will only touch the surface of it but enough so that we understand it.
+
+#### Event Queue
+JavaScript is single threaded, that means all of our code and operations are handled in main thread only. But, we know that there could be lots of things can happen asynchronously, for e.g. `setTimeout` methods which schedules methods to be executed in the future. But there is one problem here, lets look at below code:
+
+```ts
+setTimeout(() => console.log('Hello!'), 10000)
+
+//Hello! will be printed after 10 seconds.
+```
+
+Above code is quite simple, it will print `"Hello!"` after 10 seconds, but wait, does it mean our code will wait for 10 seconds at this line? That would be really big problem right ?
+Again with time bomb example, we don't want to plant the time bomb and sit there until it explodes, instead we want to plant the time and then leave that place, keep doing rest of our work and bomb should automatically explode once timer is expired. With the same analogy, Whenever  we use `setTimeout`, we schedule a part of code to be executed sometime in the future, and we want JavaScript to continue with the rest of the scripts in our code.
+
+This roughly translates to what we call asynchronous tasks, and all such activities which are scheduled to be resolved in future are kept safely somewhere, where we could place them in the proper order so that we can execute them at right time in future. This special storage place is called Event Queue. 
+
+
+> Tasks are only executed once all the current running tasks are completed in the main thread.
+
+Okay, so we have our timer tasks placed in **Event Queue** now timer is expired, and comes the time to execute these tasks. We already know JavaScript is single threaded language and everything executes in the main call stack and in order to execute anything we have to execute it in main call stack. But before picking any task from the Event Queue, JavaScript makes sure everything else in call stack is already executed an there is nothing left to execute.
+
+

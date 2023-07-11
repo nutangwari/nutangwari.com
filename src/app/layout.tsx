@@ -22,12 +22,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${josefin.className} flex flex-col w-full h-[calc(100vh_-_5rem_-_1px)] bg-neutral-900`}>
-        <nav className='fixed top-0 w-full'>
+        <nav className='fixed z-10 top-0 w-full backdrop-blur'>
           <Nav />
         </nav>
 
         {/* removing the margin mt-20 (5rem) from screen height */}
-        <main className='mt-20 w-full flex-grow px-10 mx-auto'>
+        <main className='mt-20 w-full flex-grow px-2 md:px-10 mx-auto'>
           {children}
           <Analytics />
         </main>

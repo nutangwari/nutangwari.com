@@ -1,0 +1,83 @@
+---
+title: "Implementing custom Promise.all method"
+description: "Implementing custom Promise.all method in JavaScript"
+createDate: "23 Aug 2023"
+tags:
+  - Javascript
+  - Promise
+---
+
+## Problem:
+
+A couple of weeks ago, I was interviewing for my next job and was asked questions about one of the popular interview topics: "Promises" in JavaScript. Here's the question:
+
+> Implementing custom `Promise.all(){:ts}` method from scratch:
+
+So, the discussion mainly revolved around questions about Promises. One key point was how we can enhance promises similar to how RxJS improved observables through the use of `RxJS` operators. RxJS offers a wide range of operators that provide a stronger grasp on working with observables. For example, the `tap` operator allows us to extract the value of the observable, while the `filter` operator enables us to selectively isolate specific values from the observable, among others.
+
+So, the fundamental concept was to extend similar operators as methods for promises. The initial focus was on creating a `Promise.all(){:ts}` equivalent from the ground up. Here's my implementation for it:
+
+## Solution:
+
+```ts
+function promiseAll<T>(promiseList: Promise<T>[]): Promise<T[]> {
+  
+    // if all passed promises are resolved
+    const isCompleted = () => {
+        return promiseList.length === results.length;
+    };
+
+    const results: T[] = [];
+    return new Promise((resolve: Function, reject: Function) => {
+
+        //if empty array is passed resolve promise with empty
+        if (!promiseList.length) {
+            resolve([]);
+            return;
+        }
+
+        //iterating over each promise and resolving
+        promiseList.forEach((promise: Promise<T>, index: number) => {
+            promise.then((value: T) => {
+                // push resolved promise in exact index as passed promise,
+                // we need to maintain the right index of resolved promises.
+                results[index] = value;
+            }).catch((err) => {
+                // if single promise is fails,
+                // reject whole operation with that error
+                reject(err);
+            }).finally(() => {
+                // finally if no error is captured,
+                // and all resolved promise are pushed into results array
+                // now it's safe to resolve operation with all settled promises.
+                if (isCompleted()) {
+                    resolve(results);
+                };
+            });
+        });
+    });
+}
+```
+
+## Explanation:
+
+Comments are added inline, but still to highlight there are key features of the solution:
+
+<div className="highlighted-section">
+    1. function should accept array of promises.
+    2. should return a single Promise that resolves when all the Promises in the provided argument are resolved, or
+    3. rejects if any of the Promises reject, 
+</div>
+
+
+> <span className="note">Note: </span> An important thing to notice here is that we need to maintain the array of resolved promises in the same sequence as the corresponding passed promises, and we should resolve the parent promise only when all of the passed promises are resolved.
+
+Solution involves monitoring the resolution of each promise, arranging them in the results array in their original sequence. Once the count of resolved promises matches the number of promises in the input array, the parent promise is resolved with the accumulated results. If any promise fails at any point, the parent promise is immediately rejected, accompanied by the error pertaining to the failed promise. It is crucial to utilize the `.finally` method, which assesses the completion status of all the promises.
+
+
+
+### Resources:
+<div className="links">
+    - [MDN - Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+    - [Promises - by Jake Archibald](https://web.dev/promises/)
+</div>
