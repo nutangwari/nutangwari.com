@@ -1,3 +1,4 @@
+import { Metadata } from 'next'
 import { FaLinkedin, FaGithub, FaTwitter } from 'react-icons/fa'
 export const SocialLinks = [
     {
@@ -16,3 +17,28 @@ export const SocialLinks = [
         icon: FaLinkedin
     }
 ]
+
+
+export const MetadataTags: Metadata = {
+    title: 'Nutan Gwari :: Home',
+    description: 'Nutan Gwari personal website',
+    keywords: [
+        'Nutan Gwari', 'Angular', 'Nextjs', 'React', 'Tech blogs', 'in depth angular',
+        'learn javascript', 'in depth javascript articles', 'website development'
+    ],
+    openGraph: {
+      type: 'website',
+      url: 'https://nutangwari.com',
+      title: 'Nutan Gwari — Frontend Engineer',
+      description: 'My personal portfolio website and blog discussing about various topics in web development and frontend engineering space.',
+      images: '/meta-og.png'
+    },
+    twitter: {
+        card: 'summary_large_image',
+        site: 'https://nutangwari.com',
+        title: 'Nutan Gwari — Frontend Engineer',
+        description: 'My personal portfolio website and blog discussing about various topics in web development and frontend engineering space.',
+        images: '/meta-og.png' 
+    },
+
+  }

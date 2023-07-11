@@ -3,6 +3,8 @@ import './globals.css'
 import { Inter, Josefin_Sans } from 'next/font/google'
 import Footer from '@/components/Footer'
 import { Analytics } from '@vercel/analytics/react';
+import { Metadata } from 'next';
+import { MetadataTags } from '@/lib/app.constant';
 
 // const inter = Inter({ subsets: ['latin'] })
 const josefin = Josefin_Sans({
@@ -10,10 +12,7 @@ const josefin = Josefin_Sans({
   subsets: ['latin']
 })
 
-export const metadata = {
-  title: 'Nutan Gwari :: Home',
-  description: 'Nutan Gwari personal website',
-}
+export const metadata: Metadata = MetadataTags
 
 export default function RootLayout({
   children,
