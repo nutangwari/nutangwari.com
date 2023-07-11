@@ -18,7 +18,7 @@ export default function CV() {
                 <h1 className="text-3xl">Nutan Gwari</h1>
                 <h2 className="text-neutral-300">Frontend Engineer</h2>
                 <div className="flex mt-2 text-neutral-500">
-                    { socialLinks.map(link => (
+                    {socialLinks.map(link => (
                         <Link key={link.label} className="mr-3" href={link.url} target='_blank'><link.icon /></Link>
                     ))}
                 </div>
@@ -28,11 +28,11 @@ export default function CV() {
             <section id="skills" className="mt-20 scroll-m-40">
                 <h2 className="text-neutral-100 text-lg mb-5">Skills: </h2>
                 <div className="flex flex-wrap">
-                { coreSkills.map(skill =>(
-                    <div key={skill} className="rounded-full py-1 px-3 bg-neutral-800 text-cyan-500 text-sm mr-3 mt-1">{skill}</div>
-                ))}
+                    {coreSkills.map(skill => (
+                        <div key={skill} className="rounded-full py-1 px-3 bg-neutral-800 text-cyan-500 text-sm mr-3 mt-1">{skill}</div>
+                    ))}
                 </div>
-                
+
             </section>
 
             {/* Intro */}
@@ -41,19 +41,23 @@ export default function CV() {
                 <p className="mb-3">
                     I started my career in 2013 as a Junior Software Engineer at <Link href="https://www.tcs.com" target="_blank" className="text-cyan-500 font-bold">TCS</Link> and have since gained valuable experience working with product-based organizations in various domains.
                 </p>
-
+                
+                {/* Sungard */}
                 <p className="mb-3">
                     During my time at <Link href="https://www.sungard.com" target="_blank" className="text-cyan-500 font-bold">SunGard</Link>, I was part of the core R&D team where I developed highly performant and customizable UI widgets for the company-wide UI framework. I played a key role in promoting framework adoption, delivering new releases, and maintaing multiple release versions.
                 </p>
 
+                {/* citi */}
                 <p className="mb-3">
                     At <Link href="https://www.citi.com" target="_blank" className="text-cyan-500 font-bold"> Citi</Link>, I led the frontend engineering efforts for internal compliance products, revamping legacy applications using modern Angular frameworks and following company branding guidelines. I also participated in the StepUp program, mentoring teams in Angular, TypeScript, and RxJS
                 </p>
 
+                {/* nice */}
                 <p className="mb-3">
-                    In my role as a Specialist Software Engineer at <Link href="https://www.nice.com" target="_blank" className="text-cyan-500 font-bold">NICE</Link> working on the <Link href="https://www.satmetrix.com" target="_blank" className="underline text-green-500">Satmetrix</Link> product, I led the UI team in building a survey building framework and a high-performance survey rendering engine. I also developed a Mobile SDK npm package, which won recognition in the company-wide <b>NICE Global Hackathon</b>. Additionally, I was responsible for identifying and addressing security vulnerabilities, taking tech sessions and automatic performance benchmarking.
+                    In my role as a Specialist Software Engineer at <Link href="https://www.nice.com" target="_blank" className="text-cyan-500 font-bold">NICE</Link> working on the <Link href="https://www.satmetrix.com" target="_blank" className="underline text-green-500">Satmetrix</Link> product, I led the UI team in building a survey building framework and a high-performance survey rendering engine. I also developed a Mobile SDK npm package, which won recognition in the company-wide <b>NICE Global Hackathon</b>. Additionally, I was responsible for identifying and addressing security vulnerabilities, taking tech sessions and automating performance benchmarking.
                 </p>
 
+                {/* vmware */}
                 <p className="mb-3">
                     Currently, as a Senior Member of Technical Staff at <Link href="https://www.vmware.com" target="_blank" className="text-cyan-500 font-bold">VMware</Link>, working on the <Link href="https://www.vmware.com/in/products/nsx.html" target="_blank" className="underline text-green-500">NSX</Link> product, specializing in Network Security and Virtualization. I develop and maintain modules such as NAT, DNS, and DHCP, and have created Node.js utilities and libraries to automate processes. I also contribute to maintaining <Link href="https://clarity.design/" target="_blank" className="underline text-green-500">Clarity</Link> components using <kbd>Storybook</kbd>.
                 </p>

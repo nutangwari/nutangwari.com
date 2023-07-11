@@ -46,7 +46,7 @@ export default function About() {
     return (
         <div className="mx-auto mt-10 w-3/5 mb-20">
 
-            <h2 className="text-center text-2xl">Hey, I&apos;m amNutan Gwari 👋</h2>
+            <h2 className="text-center text-2xl">Hey, I&apos;m Nutan Gwari 👋</h2>
 
             <p className="my-16 text-xl font-extralight">
                 I&apos;am frontend engineer, passionate for developing experience rich web applications.
@@ -57,7 +57,7 @@ export default function About() {
                 automated common tasks and improved productivity by developing custom utilities and libraries.
                 Throughtout my career I have collaborated with cross-functional teams, addressed technical debts, and ensured the
                 smooth delivery of features.
-            </p>
+            </p>``
 
             <section>
                 <h2 className="mb-2 text-lg">Work Experience:</h2>

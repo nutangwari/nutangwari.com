@@ -20,6 +20,7 @@ export const SocialLinks = [
 
 
 export const MetadataTags: Metadata = {
+    metadataBase: new URL('https://nutangwari.com'),
     title: 'Nutan Gwari :: Home',
     description: 'Nutan Gwari personal website',
     keywords: [
