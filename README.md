@@ -18,14 +18,17 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-Project Directory:
+##Project Directory:
 **App**: App folder contains all the pages, it follows Next App router for routing and creating individual pages, all pages can be found under this folder.
+
 **lib**: Lib folder includes basic util methods such as accessing all the markdown files, converting markdown files to HTML etc.
+
 **Components**: Component folder includes UI based commonly used components, all components are react server components, unless it requires some UI side functionality, such components are marked as `use client` at the top of the file.
+
 **_blogs**: All individual blogs are written in markdown and are placed under `_blogs` directory, _ prefix in directory name marks this as private directory. In order to create a new blog page, add new markdown file and start adding your blog content. it will automatically will be listed in the blogs page.
 
 
-Styling:
+## Styling:
 All the styles are done using tailwindcss classes, and default configs are added in the tailwind.config.ts file and global.css file
 
 
