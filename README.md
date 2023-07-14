@@ -18,7 +18,8 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-##Project Directory:
+## Project Directory:
+
 **App**: App folder contains all the pages, it follows Next App router for routing and creating individual pages, all pages can be found under this folder.
 
 **lib**: Lib folder includes basic util methods such as accessing all the markdown files, converting markdown files to HTML etc.
