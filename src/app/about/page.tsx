@@ -3,6 +3,14 @@ import Image from "next/image";
 
 const experience = [
     {
+        company: 'Veritas',
+        url: 'https://www.veritas.com',
+        image: '/veritas.png',
+        position: 'Principal Engineer',
+        tenure: '2023 — Current',
+        skills: ['angular', 'typescript', 'nodejs', 'ngrx', 'scss', 'material', 'VDL']
+    },
+    {
         company: 'VMware',
         url: 'https://www.vmware.com',
         image: '/vmw.jpg',
